@@ -1,17 +1,4 @@
-<?php
-require_once("nano.php");
-$obj = new Nano();
-require_once("header.php");
-if(isset($_GET['cateid'])){
-	$categories = $obj->fetchdata(' categories ',' where parentid = '.$_GET['cateid'],' order by cate_id ','');
-}else{
-	$categories = $obj->fetchdata(' categories ',' ',' order by cate_id ','');
-}
-
-
-?>
-    
-    <div class="product-big-title-area">
+   <div class="product-big-title-area">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -29,22 +16,11 @@ if(isset($_GET['cateid'])){
         <div class="container">
         
             <div class="row">
-            <?php
-			
-			foreach($categories as $cate){
-				
-				$subcat = $obj->countrecord(' categories ',' * ',' where parentid = '.$cate['cate_id']);
-				if($subcat['total'] > 1){
-					?>
-                <a href="category.php?cateid=<?=$cate['cate_id']?>"> <div class="category mycate"><?=$cate['name']?></div></a>
-                <?php
-				}else{
-				?>
-                <a href="products.php?cateid=<?=$cate['cate_id']?>"> <div class="category mycate"><?=$cate['name']?></div></a>
-                <?php	
-				}
-			}
-			?>
+          
+                <a href="category.php"> <div class="category mycate">ghfdghdfh</div></a>
+              
+              
+                
             </div>
             
             <!--<div class="row">
@@ -74,6 +50,3 @@ if(isset($_GET['cateid'])){
             </div>-->
         </div>
     </div>
-  <?php  
-    require_once("footer.php");
-	?>

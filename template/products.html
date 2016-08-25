@@ -1,18 +1,4 @@
-<?php
-require_once("nano.php");
-$obj = new Nano();
-require_once("header.php");
-
-if(isset($_POST['search_prod']) && !empty($_POST['search_prod'])){
-	$products = $obj->fetchdata(' products ',' where name like "%'.$_POST['search_prod'].'%"',' order by prod_id ','');
-}else if(isset($_REQUEST['cateid']) && !empty($_REQUEST['cateid'])){
-    $products = $obj->fetchdata(' products ',' where cate_id = '.$_REQUEST['cateid'],' order by prod_id ','');
-}else{
-	$products = $obj->fetchdata(' products ',' ',' order by prod_id ','');
-}
-
-?>
-    
+  
     <div class="product-big-title-area">
         <div class="container">
             <div class="row">
@@ -31,10 +17,7 @@ if(isset($_POST['search_prod']) && !empty($_POST['search_prod'])){
         <div class="container">
         
             <div class="row">
-            <?php
-			if(sizeof($products) > 0){
-                foreach($products as $prod){
-                    ?>
+           
                     <div class="col-md-3 col-sm-6">
                         <div class="single-shop-product">
                             <div class="product-upper">
@@ -50,13 +33,7 @@ if(isset($_POST['search_prod']) && !empty($_POST['search_prod'])){
                             </div>                       
                         </div>
                     </div>
-                <?php
-                }
-            }else{
-                echo "<h3 style='text-align:center;'>No products found</h3>";
-            }
-			
-			?>
+                
                 
                 <!--<div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
@@ -252,6 +229,3 @@ if(isset($_POST['search_prod']) && !empty($_POST['search_prod'])){
             </div>-->
         </div>
     </div>
-  <?php  
-    require_once("footer.php");
-	?>

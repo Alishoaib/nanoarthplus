@@ -9,7 +9,19 @@ nano.config(['$httpProvider', '$routeProvider',
                               })
                               .when('/aboutus', {
                                   templateUrl: 'template/aboutus.html',
-                                  controller : 'defaultController'
+                                  controller : 'aboutusController'
+                              })
+							  .when('/category', {
+                                  templateUrl: 'template/category.html',
+                                  controller : 'categoryController'
+                              })
+							  .when('/contactus', {
+                                  templateUrl: 'template/contact.html',
+                                  controller : 'contactusController'
+                              })
+							  .when('/products', {
+                                  templateUrl: 'template/products.html',
+                                  controller : 'productsController'
                               })
                               .otherwise({redirectTo: '/errorPages/404.jsp'});
 

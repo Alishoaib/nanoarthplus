@@ -25,6 +25,11 @@
     <script src="assets/js/common/angular-route.min.js"></script>
     <script src="angularjs/routes.js"></script>
     <script src="angularjs/controllers/defaultController.js"></script>
+    <script src="angularjs/controllers/aboutusController.js"></script>
+    <script src="angularjs/controllers/categoryController.js"></script>
+    <script src="angularjs/controllers/contactusController.js"></script>
+    <script src="angularjs/controllers/productsController.js"></script>
+    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -117,12 +122,7 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div> 
-                <?php 
-				
-				$url = $_SERVER['REQUEST_URI'];
-				$url = explode("/",$url);
-				$prod = explode("?", $url[2]);
-				?>
+              
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#/">Home</a></li>
