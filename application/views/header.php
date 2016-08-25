@@ -1,26 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+<html ng-app="nano">
   <head>
+  <base href="<?=base_url();?>">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nanoarthplus</title>
     
     <!-- Google Fonts -->
-    <link href='css/style1.css' rel='stylesheet' type='text/css'>
-    <link href='css/style2.css' rel='stylesheet' type='text/css'>
-    <link href='css/style3.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/style1.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/style2.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/style3.css' rel='stylesheet' type='text/css'>
     
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <script src="assets/js/common/angular.min.js"></script>
+    <script src="assets/js/common/angular-route.min.js"></script>
+    <script src="angularjs/routes.js"></script>
+    <script src="angularjs/controllers/defaultController.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -34,7 +38,7 @@
 	}
 	</style>
   </head>
-  <body>
+  <body ng-app="nano">
    
     <!--<div class="header-area">
         <div class="container">
@@ -83,7 +87,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo">
-                        <h1 style="margin:1px;"><a href="./"><img src="img/nanoarthpluslogo2.png"></a></h1>
+                        <h1 style="margin:1px;"><a href="./"><img src="assets/img/nanoarthpluslogo2.png"></a></h1>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4" style="float:right; margin:5px;">
@@ -121,11 +125,11 @@
 				?>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li <?=(strtolower($url[2]) == 'index.php' || strtolower($url[2]) == '') ? 'class="active"' : '';?>><a href="index.php">Home</a></li>
-                        <li <?=(strtolower($url[2]) == 'aboutus.php') ? 'class="active"' : '';?>><a href="aboutus.php">About Us</a></li>
-                        <li <?=(strtolower($prod[0]) == 'products.php') ? 'class="active"' : '';?>><a href="products.php">Products</a></li>
-                        <li <?=(strtolower($url[2]) == 'category.php') ? 'class="active"' : '';?>><a href="category.php">Category</a></li>
-                        <li <?=(strtolower($url[2]) == 'contact.php') ? 'class="active"' : '';?>><a href="contact.php">Contact us</a></li>                </div>  
+                        <li class="active"><a href="#/">Home</a></li>
+                        <li><a href="#/aboutus">About Us</a></li>
+                        <li><a href="#/products">Products</a></li>
+                        <li><a href="#/category">Category</a></li>
+                        <li><a href="#/contactus">Contact us</a></li>                </div>  
             </div>
         </div>
     </div> <!-- End mainmenu area -->

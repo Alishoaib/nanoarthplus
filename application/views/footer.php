@@ -33,14 +33,14 @@
                         <h2 class="footer-wid-title">Categories</h2>
                         <ul>
                          <?php
-						$cate = $obj->fetchdata("categories",'',' order by cate_id desc ','limit 5');
+						/*$cate = $obj->fetchdata("categories",'',' order by cate_id desc ','limit 5');
 						if(sizeof($cate) > 0){
-							foreach($cate as $row){
+							foreach($cate as $row){*/
 								?>
-                                <li><a href="#"><?=ucfirst($row['name']);?></a></li>
+                                <li><a href="#"></a></li>
 								<?php
-							}
-						}
+							/*}
+						}*/
 						?>
                             
                             <!--<li><a href="#">Home accesseries</a></li>
@@ -89,22 +89,22 @@
     </div> <!-- End footer bottom area -->
    
     <!-- Latest jQuery form server -->
-    <script src="js/jquery.min.js"></script>
+    <script src="assets/js/common/jquery.min.js"></script>
     
     <!-- Bootstrap JS form CDN -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="assets/js/common/bootstrap.min.js"></script>
     
     <!-- jQuery sticky menu -->
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
+    <script src="assets/js/common/owl.carousel.min.js"></script>
+    <script src="assets/js/common/jquery.sticky.js"></script>
     
     <!-- jQuery easing -->
-    <script src="js/jquery.easing.1.3.min.js"></script>
+    <script src="assets/js/common/jquery.easing.1.3.min.js"></script>
     
     <!-- Main Script -->
-    <script src="js/main.js"></script>
+    <script src="assets/js/common/main.js"></script>
   <!-- Slider -->
-    <script type="text/javascript" src="js/bxslider.min.js"></script>
-	<script type="text/javascript" src="js/script.slider.js"></script>
+    <script type="text/javascript" src="assets/js/common/bxslider.min.js"></script>
+	<script type="text/javascript" src="assets/js/common/script.slider.js"></script>
   </body>
 </html>
