@@ -1,6 +1,6 @@
 var nano = angular.module('nano',['ngRoute']);
-nano.config(['$httpProvider', '$routeProvider',
-                      function ($httpProvider, $routeProvider) {
+nano.config(['$httpProvider', '$routeProvider','$locationProvider',
+                      function ($httpProvider, $routeProvider,$locationProvider) {
                           $routeProvider
                           // route for the home page
                               .when('/', {
@@ -15,6 +15,10 @@ nano.config(['$httpProvider', '$routeProvider',
                                   templateUrl: 'template/category.html',
                                   controller : 'categoryController'
                               })
+							  .when('/category/:catid', {
+                                  templateUrl: 'template/category.html',
+                                  controller : 'categoryController'
+                              })
 							  .when('/contactus', {
                                   templateUrl: 'template/contact.html',
                                   controller : 'contactusController'
@@ -23,6 +27,15 @@ nano.config(['$httpProvider', '$routeProvider',
                                   templateUrl: 'template/products.html',
                                   controller : 'productsController'
                               })
+							  .when('/product/:prodid', {
+                                  templateUrl: 'template/product.html',
+                                  controller : 'productdetailController'
+                              })
                               .otherwise({redirectTo: '/errorPages/404.jsp'});
+							  
+							  $locationProvider.html5Mode({
+                                                  enabled    : true,
+                                                  requireBase: false
+                                              });
 
                       }]);

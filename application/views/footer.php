@@ -93,6 +93,7 @@
     
     <!-- Bootstrap JS form CDN -->
     <script src="assets/js/common/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap-notify.min.js"></script>
     
     <!-- jQuery sticky menu -->
     <script src="assets/js/common/owl.carousel.min.js"></script>

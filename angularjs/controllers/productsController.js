@@ -1,5 +1,32 @@
 nano.controller('productsController',
                          function ($http, $scope, $location, $routeParams,$anchorScroll, $route, $rootScope) {
-							 console.log("controller loaded");
+							 	$scope.products = [];
+								if($routeParams.id !== undefined){
+									getproductsbycategory($http, $scope,$routeParams);
+								}else{
+									getallproducts($http, $scope);
+								}
 							 });
-////main controller ends here
+function getallproducts($http, $scope){
+	$http.get(context+'Nano/allProducts').success(function (data) {
+
+	if(data.status === "SUCCESS"){
+		$scope.products = data.object;
+	}else{
+		getErrorNotificationmsg('No Record Found');
+	}
+        
+    });
+}
+
+function getproductsbycategory($http, $scope,$routeParams){
+	$http.get(context+'Nano/productsByCategory/'+$routeParams.id).success(function (data) {
+
+	if(data.status === "SUCCESS"){
+		$scope.products = data.object;
+	}else{
+		getErrorNotificationmsg('No Record Found');
+	}
+        
+    });
+}

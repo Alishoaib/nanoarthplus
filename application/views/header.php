@@ -21,9 +21,10 @@
     <link rel="stylesheet" href="assets/css/owl.carousel.css">
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
-    <script src="assets/js/common/angular.min.js"></script>
+    <script src="assets/js/common/angular.min.js"></script>    
     <script src="assets/js/common/angular-route.min.js"></script>
     <script src="angularjs/routes.js"></script>
+    <script src="assets/js/common/common.js"></script>
     <script src="angularjs/controllers/defaultController.js"></script>
     <script src="angularjs/controllers/aboutusController.js"></script>
     <script src="angularjs/controllers/categoryController.js"></script>
@@ -125,11 +126,11 @@
               
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#/">Home</a></li>
-                        <li><a href="#/aboutus">About Us</a></li>
-                        <li><a href="#/products">Products</a></li>
-                        <li><a href="#/category">Category</a></li>
-                        <li><a href="#/contactus">Contact us</a></li>                </div>  
+                        <li class="active"><a href="">Home</a></li>
+                        <li><a href="aboutus">About Us</a></li>
+                        <li><a href="products">Products</a></li>
+                        <li><a href="category">Category</a></li>
+                        <li><a href="contactus">Contact us</a></li>                </div>  
             </div>
         </div>
     </div> <!-- End mainmenu area -->

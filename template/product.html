@@ -1,12 +1,4 @@
-<?php
-require_once("nano.php");
-$obj = new Nano();
-require_once("header.php");
-if(!isset($_REQUEST['id'])){
-	header("Location:index.php");
-}
-?>    
-    <div class="product-big-title-area">
+     <div class="product-big-title-area">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -31,26 +23,18 @@ if(!isset($_REQUEST['id'])){
                             <input type="submit" value="Search">
                         </form>
                     </div>
-                    <?php
-					$latproduct = $obj->fetchdata(' products ',' ',' order by prod_id desc ','limit 4');
-					?>
+                   
                     <div class="single-sidebar">
                         <h2 class="sidebar-title">Products</h2>
-                        <?php
-						if(sizeof($latproduct) > 0){
-							foreach($latproduct as $latprod){
-								?>
+                       
                                 <div class="thubmnail-recent">
-                            <img src="productimages/<?=$latprod['prod_image'];?>" class="recent-thumb" alt="<?=$latprod['name'];?>">
-                            <h2><a href="product.php?id=<?=$latprod['prod_id'];?>"><?=$latprod['name'];?></a></h2>
+                            <img src="productimages/" class="recent-thumb" alt="">
+                            <h2><a href="product.php?id">fgdh</a></h2>
                             <div class="product-sidebar-price">
-                                <?php /*?><ins><?=$latprod['curreny'];?><?=$latprod['price'];?></ins> <del><?=$latprod['curreny'];?><?=$latprod['price']+10;?></del><?php */?>
+                              
                             </div>                             
                         </div>
-                                <?php
-							}
-						}
-						?>
+                               
                         
                         <!--<div class="thubmnail-recent">
                             <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
