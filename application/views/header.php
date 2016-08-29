@@ -30,7 +30,7 @@
     <script src="angularjs/controllers/categoryController.js"></script>
     <script src="angularjs/controllers/contactusController.js"></script>
     <script src="angularjs/controllers/productsController.js"></script>
-    
+    <script src="angularjs/controllers/productdetailController.js"></script>    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

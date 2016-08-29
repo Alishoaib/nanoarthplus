@@ -32,6 +32,7 @@ class Nano extends REST_Controller {
 	}
 	
 	public function productdetail_get($id){
-		$data = $this->Generalmodal->getdata('products',array('prod_id'=>$id));
+		$data = $this->Generalmodal->join_three_result('categories cat','products pr','product_images pi','cat.cate_id=pr.cate_id','pr.prod_id=pi.product_id',$group=NULL,array('pr.prod_id'=>$cate),$select='*');		
+		$this->response($data,REST_Controller::HTTP_OK);
 	}
 }

@@ -26,12 +26,11 @@
                    
                     <div class="single-sidebar">
                         <h2 class="sidebar-title">Products</h2>
-                       
                                 <div class="thubmnail-recent">
-                            <img src="productimages/" class="recent-thumb" alt="">
-                            <h2><a href="product.php?id">fgdh</a></h2>
+                            <img ng-src="productimages/{{productdetail.image_name}}" class="recent-thumb" alt="">
+                            <h2><a href="product/{{productdetail.prod_id}}">{{productdetail.name}}</a></h2>
                             <div class="product-sidebar-price">
-                              
+                              <ins>{{productdetail.price}}</ins>
                             </div>                             
                         </div>
                                
@@ -62,16 +61,10 @@
                     <div class="single-sidebar">
                         <h2 class="sidebar-title">Recent Products</h2>
                         <ul>
-                        <?php
-						if(sizeof($latproduct) > 0){
-							foreach($latproduct as $latprod){
-								?>
-                            <li><a href="product.php?id=<?=$latprod['prod_id']?>"><?=$latprod['name']?></a></li>
+                       					
+                            <li><a href="product"><?=$latprod['name']?></a></li>
                             
-                            <?php
-							}
-						}
-							?>
+                           
                             <!--<li><a href="">Sony Smart TV - 2015</a></li>
                             <li><a href="">Sony Smart TV - 2015</a></li>
                             <li><a href="">Sony Smart TV - 2015</a></li>
@@ -79,51 +72,38 @@
                         </ul>
                     </div>
                 </div>
-                <?php
-				$product = $obj->fetchdata(' products ',' where prod_id = '.$_GET['id'],'','');
-				$category = $obj->fetchdata(' categories ',' where cate_id = '.$product[0]['cate_id'],'','');
-				
-				?>
+               
                 <div class="col-md-8">
                     <div class="product-content-right">
                         <div class="product-breadcroumb">
                             <a href="products.php">Products</a>
                             <!--<a href="">Category Name</a>-->
-                            <a href="product.php?id=<?=$product[0]['prod_id'];?>"><?=$product[0]['name']?></a>
+                            <a href="product">{{productdetail.name}}</a>
                         </div>
                         
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="product-images">
                                     <div class="product-main-img">
-                                        <img src="productimages/<?=$product[0]['prod_image']?>" alt="<?=$product[0]['name']?>">
+                                        <img ng-src="productimages/{{productdetail.image_name}}" alt="{{productdetail.name}}">
                                     </div>
                                     
-                                    <?php /*?><div class="product-gallery">
-                                        <img src="productimages/<?=$product[0]['prod_image']?>" alt="<?=$product[0]['name']?>">
-                                        <?php
-										if(!empty($product[0]['prod_image2'])){
-											?>
-                                            <img src="productimages/<?=$product[0]['prod_image2']?>" alt="<?=$product[0]['name']?>">
-                                            <?php
-										}
-										if(!empty($product[0]['prod_image3'])){
-											?>
-                                            <img src="productimages/<?=$product[0]['prod_image3']?>" alt="<?=$product[0]['name']?>">
-                                            <?php
-										}
-										?>
+                                  <div class="product-gallery">
+                                        <img src="productimages/{{productdetail.image_name}}" alt="{{productdetail.name}}">
+                                       
+                                            <img src="productimages/{{productdetail.image_name}}" alt="{{productdetail.name}}">
+                                            <img src="productimages/{{productdetail.image_name}}" alt="{{productdetail.name}}">
+                                            
                                         
-                                        
-                                    </div><?php */?>
+                                    </div>
                                 </div>
                             </div>
                             
                             <div class="col-sm-6">
                                 <div class="product-inner">
-                                    <h2 class="product-name"><?=$product[0]['name']?></h2>
+                                    <h2 class="product-name">{{productdetail.name}}</h2>
                                     <div class="product-inner-price">
-                                        <?php /*?><ins><?=$product[0]['curreny']?><?=$product[0]['price']?></ins><?php */?> <!--<del>$100.00</del>-->
+                                       <ins>{{productdetail.price}}</ins> <!--<del>$100.00</del>-->
                                     </div>    
                                     
                                    <!-- <form action="" class="cart">
@@ -135,7 +115,7 @@
                                     
                                     <div class="product-inner-category">
                                    
-                                        <p>Category: <a href=""><?=$category[0]['name'];?></a>. <!--Tags: <a href="">awesome</a>, <a href="">best</a>, <a href="">sale</a>, <a href="">shoes</a>.--> </p>
+                                        <p>Category: <a href="">{{productdetail[0].name}}</a>. <!--Tags: <a href="">awesome</a>, <a href="">best</a>, <a href="">sale</a>, <a href="">shoes</a>.--> </p>
                                     </div> 
                                     
                                     <div role="tabpanel">
@@ -146,7 +126,7 @@
                                         <div class="tab-content">
                                             <div role="tabpanel" class="tab-pane fade in active" id="home">
                                                 <h2>Product Description</h2>  
-                                                <p><?=$product[0]['description'];?></p>
+                                                <p ng-bind="productdetail.description"></p>
                                             </div>
                                             <!--<div role="tabpanel" class="tab-pane fade" id="profile">
                                                 <h2>Reviews</h2>
@@ -174,15 +154,11 @@
                                 </div>
                             </div>
                         </div>
-                        <?php
-                        $relatedproduct = $obj->fetchdata(' products ',' where cate_id = '.$product[0]['cate_id'].' and prod_id != '.$product[0]['prod_id'],' order by prod_id ',' limit 3');
-						?>
+                       
                         <div class="related-products-wrapper">
                             <h2 class="related-products-title">Related Products</h2>
                             <div class="related-products-carousel">
-                            <?php
-							foreach($relatedproduct as $relprod){
-							?>
+                           
                                 <div class="single-product">
                                     <div class="product-f-image">
                                         <img src="productimages/<?=$relprod['prod_image'];?>" alt="<?=$relprod['name'];?>">
@@ -194,13 +170,11 @@
 
                                     <h2><a href="product.php?id=<?=$relprod['prod_id'];?>"><?=$relprod['name'];?></a></h2>
 
-                                    <?php /*?><div class="product-carousel-price">
+                                   <div class="product-carousel-price">
                                         <ins><?=$relprod['curreny'];?><?=$relprod['price'];?></ins> 
-                                    </div><?php */?> 
+                                    </div>
                                 </div>
-                                  <?php
-							}
-								  ?>                                
+                                                         
                             </div>
                         </div>
                     </div>                    
@@ -208,6 +182,3 @@
             </div>
         </div>
     </div>
-<?php  
-    require_once("footer.php");
-	?>
