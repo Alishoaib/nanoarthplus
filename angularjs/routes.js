@@ -31,7 +31,7 @@ nano.config(['$httpProvider', '$routeProvider','$locationProvider',
                                   templateUrl: 'template/product.html',
                                   controller : 'productdetailController'
                               })
-                              .otherwise({redirectTo: '/errorPages/404.jsp'});
+                              .otherwise({redirectTo: '/errorPages/404.html'});
 							  
 							  $locationProvider.html5Mode({
                                                   enabled    : true,
