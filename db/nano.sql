@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 23, 2016 at 09:48 PM
+-- Generation Time: Aug 30, 2016 at 07:12 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 7.0.2
 
@@ -44,7 +44,7 @@ INSERT INTO `categories` (`cate_id`, `name`, `description`, `status`, `date`, `i
 (1, 'surgicel', 'surgicel', 1, '2016-05-06 11:55:53', '', 0),
 (2, 'Dermabond', 'Dermabond', 1, '2016-05-06 11:56:24', '', 0),
 (3, 'Abbott', 'Abbott is category', 1, '2016-05-11 11:28:22', '', 0),
-(4, '3M', '3M is category', 1, '2016-05-11 11:28:22', '', 0),
+(4, '3M', '3M is category', 1, '2016-05-11 11:28:22', '', 2),
 (18, 'Ethicon', 'ethicon', 1, '2016-07-09 16:01:04', '', 1),
 (19, 'Burner', 'burner', 1, '2016-07-09 16:01:25', '', 1);
 
@@ -71,12 +71,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`prod_id`, `cate_id`, `name`, `description`, `price`, `curreny`, `status`, `date`, `user`) VALUES
-(1, 1, 'panadol', 'COVIDIEN VALLEYLAB CORD, MONOPOLAR LAPAROSCOPIC\nFrom advanced energy-based surgical devices to foundational surgical supplies, Covidien offers unmatched clinical and economic value through their range of market-leading brands.\n\nCovidien’s comprehensive surgical product portfolio addresses the full spectrum of clinical needs. This is achieved by working directly with healthcare professionals around the world to design and develop technologies that meet their needs in performance and value.', 500, '$', 1, '2016-05-14 12:14:43', 0),
-(2, 1, 'COVIDIEN VALLEYLAB CORD', 'COVIDIEN VALLEYLAB CORD, MONOPOLAR LAPAROSCOPIC\r\n', 500, '$', 1, '2016-05-14 12:15:45', 0),
-(3, 1, 'COVIDIEN VALLEYLAB CORD', 'COVIDIEN VALLEYLAB CORD, MONOPOLAR LAPAROSCOPIC\r\n', 500, '$', 1, '2016-05-14 12:15:51', 0),
-(4, 1, 'COVIDIEN VALLEYLAB CORD', 'COVIDIEN VALLEYLAB CORD, MONOPOLAR LAPAROSCOPIC\r\n', 500, '$', 1, '2016-05-14 12:15:57', 0),
-(5, 1, 'COVIDIEN VALLEYLAB CORD', 'COVIDIEN VALLEYLAB CORD, MONOPOLAR LAPAROSCOPIC\r\n', 500, '$', 1, '2016-05-14 12:16:01', 0),
-(6, 1, 'COVIDIEN VALLEYLAB CORD', 'COVIDIEN VALLEYLAB CORD, MONOPOLAR LAPAROSCOPIC\r\n', 500, '$', 1, '2016-05-14 12:16:05', 0),
+(1, 18, 'panadol', 'COVIDIEN VALLEYLAB CORD, MONOPOLAR LAPAROSCOPIC\nFrom advanced energy-based surgical devices to foundational surgical supplies, Covidien offers unmatched clinical and economic value through their range of market-leading brands.\n\nCovidien’s comprehensive surgical product portfolio addresses the full spectrum of clinical needs. This is achieved by working directly with healthcare professionals around the world to design and develop technologies that meet their needs in performance and value.', 500, '$', 1, '2016-05-14 12:14:43', 0),
+(2, 4, 'COVIDIEN VALLEYLAB CORD', 'COVIDIEN VALLEYLAB CORD, MONOPOLAR LAPAROSCOPIC\r\n', 500, '$', 1, '2016-05-14 12:15:45', 0),
+(3, 4, 'COVIDIEN VALLEYLAB CORD', 'COVIDIEN VALLEYLAB CORD, MONOPOLAR LAPAROSCOPIC\r\n', 500, '$', 1, '2016-05-14 12:15:51', 0),
+(4, 18, 'COVIDIEN VALLEYLAB CORD', 'COVIDIEN VALLEYLAB CORD, MONOPOLAR LAPAROSCOPIC\r\n', 500, '$', 1, '2016-05-14 12:15:57', 0),
+(5, 19, 'COVIDIEN VALLEYLAB CORD', 'COVIDIEN VALLEYLAB CORD, MONOPOLAR LAPAROSCOPIC\r\n', 500, '$', 1, '2016-05-14 12:16:01', 0),
+(6, 18, 'COVIDIEN VALLEYLAB CORD', 'COVIDIEN VALLEYLAB CORD, MONOPOLAR LAPAROSCOPIC\r\n', 500, '$', 1, '2016-05-14 12:16:05', 0),
 (22, 18, 'Ethicon', 'this is ethicon products', 120, 'USD', 1, '2016-07-09 16:39:16', 0);
 
 -- --------------------------------------------------------
@@ -90,6 +90,19 @@ CREATE TABLE `product_images` (
   `image_name` varchar(150) NOT NULL,
   `product_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `product_images`
+--
+
+INSERT INTO `product_images` (`image_id`, `image_name`, `product_id`) VALUES
+(1, 'HUGGER.jpg', 22),
+(2, 'IMG-33534.jpg', 6),
+(3, 'HUGGER.jpg', 5),
+(4, 'HUGGER.jpg', 4),
+(5, 'IMG-33534.jpg', 3),
+(6, 'IMG-33534.jpg', 2),
+(7, 'HUGGER.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -159,7 +172,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `user`
 --
