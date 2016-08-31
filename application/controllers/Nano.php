@@ -35,4 +35,8 @@ class Nano extends REST_Controller {
 		$data = $this->Generalmodal->join_three_result('categories cat','products pr','product_images pi','cat.cate_id=pr.cate_id','pr.prod_id=pi.product_id',$group=NULL,array('pr.prod_id'=>$id),$select='*');		
 		$this->response($data,REST_Controller::HTTP_OK);
 	}
+	
+	public function contactus_put(){
+		print_r($this->put());
+	}
 }
