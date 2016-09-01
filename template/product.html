@@ -1,15 +1,5 @@
-     <div class="product-big-title-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="product-bit-title text-center">
-                        <h2>Shop</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
+
+     <div class="product-big-title-area">    
     
     <div class="single-product-area">
         <div class="zigzag-bottom"></div>
@@ -62,7 +52,11 @@
                         <h2 class="sidebar-title">Recent Products</h2>
                         <ul>
                        					
-                            <li><a href="product"><?=$latprod['name']?></a></li>
+                            <li><a href="product">hkgkj</a></li>
+
+
+                       					
+                            <li ng-repeat="data in products"><a href="product">{{data.name}}</a></li>
                             
                            
                             <!--<li><a href="">Sony Smart TV - 2015</a></li>
@@ -75,11 +69,17 @@
                
                 <div class="col-md-8">
                     <div class="product-content-right">
-                        <div class="product-breadcroumb">
-                            <a href="products.php">Products</a>
+                        <ol class="breadcrumb">
+                            <li><a href="products.php">Products</a></li>
                             <!--<a href="">Category Name</a>-->
+
                             <a href="product">{{productdetail.name}}</a>
+
+
                         </div>
+                            <li>{{productdetail[0].name}}</li>
+                        </ol>
+
                         
                         <div class="row">
                             <div class="col-sm-6">
@@ -94,6 +94,15 @@
                                             <img src="productimages/{{productdetail.image_name}}" alt="{{productdetail.name}}">
                                             <img src="productimages/{{productdetail.image_name}}" alt="{{productdetail.name}}">
                                             
+                                        <img ng-src="assets/productimages/{{productdetail[0].image_name}}" alt="{{productdetail[0].name}}">
+                                    </div>
+                                    
+                                  <div class="product-gallery">
+                                        <img ng-src="assets/productimages/{{productdetail[0].image_name}}" alt="{{productdetail[0].name}}">
+                                       
+                                            <img ng-src="assets/productimages/{{productdetail[0].image_name}}" alt="{{productdetail[0].name}}">
+                                            <img ng-src="assets/productimages/{{productdetail[0].image_name}}" alt="{{productdetail[0].name}}">
+                                            
                                         
                                     </div>
                                 </div>
@@ -104,6 +113,10 @@
                                     <h2 class="product-name">{{productdetail.name}}</h2>
                                     <div class="product-inner-price">
                                        <ins>{{productdetail.price}}</ins> <!--<del>$100.00</del>-->
+                                    <h2 class="product-name">{{productdetail[0].name}}</h2>
+                                    <div class="product-inner-price">
+                                       <ins>{{productdetail[0].price}}</ins> <!--<del>$100.00</del>-->
+
                                     </div>    
                                     
                                    <!-- <form action="" class="cart">
@@ -127,6 +140,8 @@
                                             <div role="tabpanel" class="tab-pane fade in active" id="home">
                                                 <h2>Product Description</h2>  
                                                 <p ng-bind="productdetail.description"></p>
+
+                                                <p ng-bind="productdetail[0].description"></p>
                                             </div>
                                             <!--<div role="tabpanel" class="tab-pane fade" id="profile">
                                                 <h2>Reviews</h2>
