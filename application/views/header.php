@@ -1,9 +1,10 @@
 <html ng-app="nano">
   <head>
-  <base href="<?=base_url();?>">
+  
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="<?php echo base_url(); ?>">
     <title>Nanoarthplus</title>
     
     <!-- Google Fonts -->
@@ -44,50 +45,9 @@
 	</style>
   </head>
   <body ng-app="nano">
-   
-    <!--<div class="header-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="user-menu">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
-                            <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                            <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
-                            <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="header-right">
-                        <ul class="list-unstyled list-inline">
-                            <!--<li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">currency :</span><span class="value">USD </span><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">USD</a></li>
-                                    <li><a href="#">INR</a></li>
-                                    <li><a href="#">GBP</a></li>
-                                </ul>
-                            </li>
 
-                            <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">language :</span><span class="value">English </span><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">French</a></li>
-                                    <li><a href="#">German</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>--> <!-- End header area -->
     
-    <div class="site-branding-area">
+    <div class="site-branding-area container-fluid">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
@@ -95,10 +55,10 @@
                         <h1 style="margin:1px;"><a href="./"><img src="assets/img/nanoarthpluslogo2.png"></a></h1>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4" style="float:right; margin:5px;">
-        <form action="products.php" method="post" style="float:right;margin-top: 15px;">
-            <input type="text" name="search_prod" placeholder="Search products...">
-            <input type="submit" value="Search">
+                <div class="col-sm-6">
+        <form action="products.php" method="post" class="form-inline pull-right" style="padding-top:15px">
+            <input type="text" name="search_prod" class="form-control" placeholder="Search products...">
+            <input type="submit" value="Search" class="btn btn-xs" style="padding:8px">
         </form>
         </div>
                 
@@ -125,11 +85,95 @@
               
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
+<<<<<<< Updated upstream
                         <li class="active"><a href="#/">Home</a></li>
                         <li><a href="#/aboutus">About Us</a></li>
                         <li><a href="#/products">Products</a></li>
                         <li><a href="#/category">Category</a></li>
                         <li><a href="#/contactus">Contact us</a></li>                </div>  
+=======
+                        <li class="active"><a href="">Home</a></li>
+                        <li><a href="aboutus">About Us</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products</a>
+                            <ul class="dropdown-menu mega-dropdown">
+                                <li class="row">
+                                    <div class="col-sm-3">
+                                        <ul class="list">
+                                            <li><a href="/pruduct">Test Product</a></li>
+                                            <li><a href="">Test Product</a></li>
+                                            <li><a href="">Test Product</a></li>
+                                            <li><a href="">Test Product</a></li>
+                                            <li><a href="">Test Product</a></li>
+                                            <li><a href="">Test Product</a></li>
+                                            <li><a href="">Test Product</a></li>
+                                            <li><a href="">Test Product</a></li>
+                                            <li><a href="">Test Product</a></li>
+                                            <li><a href="">Test Product</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <div class="row">
+                                            
+                                        <div class="col-sm-3">
+                                            <div class="thumbnail">
+                                                <img src="assets/img/product-thumb-3.jpg" alt="">
+                                                <div class="thumbnail-caption">Test</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="thumbnail">
+                                                <img src="assets/img/product-thumb-3.jpg" alt="">
+                                                <div class="thumbnail-caption">Test</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="thumbnail">
+                                                <img src="assets/img/product-thumb-3.jpg" alt="">
+                                                <div class="thumbnail-caption">Test</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="thumbnail">
+                                                <img src="assets/img/product-thumb-3.jpg" alt="">
+                                                <div class="thumbnail-caption">Test</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="thumbnail">
+                                                <img src="assets/img/product-thumb-3.jpg" alt="">
+                                                <div class="thumbnail-caption">Test</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="thumbnail">
+                                                <img src="assets/img/product-thumb-3.jpg" alt="">
+                                                <div class="thumbnail-caption">Test</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="thumbnail">
+                                                <img src="assets/img/product-thumb-3.jpg" alt="">
+                                                <div class="thumbnail-caption">Test</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="thumbnail">
+                                                <img src="assets/img/product-thumb-3.jpg" alt="">
+                                                <div class="thumbnail-caption">Test</div>
+                                            </div>
+                                        </div>
+                                    
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="category">Category</a></li>
+                        <li><a href="contactus">Contact us</a></li> 
+                    </ul>
+                </div>  
+>>>>>>> Stashed changes
             </div>
         </div>
     </div> <!-- End mainmenu area -->

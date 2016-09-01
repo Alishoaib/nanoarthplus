@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <?php
 require_once("nano.php");
 $obj = new Nano();
@@ -7,6 +8,9 @@ if(!isset($_REQUEST['id'])){
 }
 ?>    
     <div class="product-big-title-area">
+=======
+     <!-- <div class="product-big-title-area">
+>>>>>>> Stashed changes
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -16,7 +20,7 @@ if(!isset($_REQUEST['id'])){
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     
     
     <div class="single-product-area">
@@ -78,11 +82,16 @@ if(!isset($_REQUEST['id'])){
                     <div class="single-sidebar">
                         <h2 class="sidebar-title">Recent Products</h2>
                         <ul>
+<<<<<<< Updated upstream
                         <?php
 						if(sizeof($latproduct) > 0){
 							foreach($latproduct as $latprod){
 								?>
                             <li><a href="product.php?id=<?=$latprod['prod_id']?>"><?=$latprod['name']?></a></li>
+=======
+                       					
+                            <li ng-repeat="data in products"><a href="product">{{data.name}}</a></li>
+>>>>>>> Stashed changes
                             
                             <?php
 							}
@@ -102,16 +111,22 @@ if(!isset($_REQUEST['id'])){
 				?>
                 <div class="col-md-8">
                     <div class="product-content-right">
-                        <div class="product-breadcroumb">
-                            <a href="products.php">Products</a>
+                        <ol class="breadcrumb">
+                            <li><a href="products.php">Products</a></li>
                             <!--<a href="">Category Name</a>-->
+<<<<<<< Updated upstream
                             <a href="product.php?id=<?=$product[0]['prod_id'];?>"><?=$product[0]['name']?></a>
                         </div>
+=======
+                            <li>{{productdetail[0].name}}</li>
+                        </ol>
+>>>>>>> Stashed changes
                         
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="product-images">
                                     <div class="product-main-img">
+<<<<<<< Updated upstream
                                         <img src="productimages/<?=$product[0]['prod_image']?>" alt="<?=$product[0]['name']?>">
                                     </div>
                                     
@@ -129,6 +144,17 @@ if(!isset($_REQUEST['id'])){
                                             <?php
 										}
 										?>
+=======
+                                        <img ng-src="assets/productimages/{{productdetail[0].image_name}}" alt="{{productdetail[0].name}}">
+                                    </div>
+                                    
+                                  <div class="product-gallery">
+                                        <img ng-src="assets/productimages/{{productdetail[0].image_name}}" alt="{{productdetail[0].name}}">
+                                       
+                                            <img ng-src="assets/productimages/{{productdetail[0].image_name}}" alt="{{productdetail[0].name}}">
+                                            <img ng-src="assets/productimages/{{productdetail[0].image_name}}" alt="{{productdetail[0].name}}">
+                                            
+>>>>>>> Stashed changes
                                         
                                         
                                     </div><?php */?>
@@ -137,9 +163,15 @@ if(!isset($_REQUEST['id'])){
                             
                             <div class="col-sm-6">
                                 <div class="product-inner">
+<<<<<<< Updated upstream
                                     <h2 class="product-name"><?=$product[0]['name']?></h2>
                                     <div class="product-inner-price">
                                         <?php /*?><ins><?=$product[0]['curreny']?><?=$product[0]['price']?></ins><?php */?> <!--<del>$100.00</del>-->
+=======
+                                    <h2 class="product-name">{{productdetail[0].name}}</h2>
+                                    <div class="product-inner-price">
+                                       <ins>{{productdetail[0].price}}</ins> <!--<del>$100.00</del>-->
+>>>>>>> Stashed changes
                                     </div>    
                                     
                                    <!-- <form action="" class="cart">
@@ -162,7 +194,11 @@ if(!isset($_REQUEST['id'])){
                                         <div class="tab-content">
                                             <div role="tabpanel" class="tab-pane fade in active" id="home">
                                                 <h2>Product Description</h2>  
+<<<<<<< Updated upstream
                                                 <p><?=$product[0]['description'];?></p>
+=======
+                                                <p ng-bind="productdetail[0].description"></p>
+>>>>>>> Stashed changes
                                             </div>
                                             <!--<div role="tabpanel" class="tab-pane fade" id="profile">
                                                 <h2>Reviews</h2>
