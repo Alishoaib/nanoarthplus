@@ -37,6 +37,30 @@ class Nano extends REST_Controller {
 	}
 	
 	public function contactus_put(){
-		print_r($this->put());
+		$insert = $this->put();
+		$data = $this->Generalmodal->insertdata('contactus',$insert);
+		
+		$this->load->library('email');
+
+		$this->email->from($this->put('email'),$this->put('name'));
+		//$this->email->to('naveed_meer26@hotmail.com');
+		$this->email->to('alishoaib174@gmail.com');
+		
+		$this->email->subject('Customer Email From Nanoarthplus');
+		$this->email->message($this->put('message'));
+		
+		$eamil = $this->email->send();
+		if($eamil){
+			$this->response($data,REST_Controller::HTTP_OK);
+		}else{
+			$this->response(array("status"=>"FAILURE","message"=>"Error in email","object"=>NULL), REST_Controller::HTTP_FORBIDDEN );
+		}
+		
+	}
+	
+	public function productsearch_get(){
+		$str = $this->get('name');
+		$data = $this->Generalmodal->join_three_result('categories cat','products pr','product_images pi','cat.cate_id=pr.cate_id','pr.prod_id=pi.product_id',$group=NULL,"pr.name like \"%$str%\"",$select='*','pr.prod_id',"disc");
+		$this->response($data,REST_Controller::HTTP_OK);
 	}
 }

@@ -19,7 +19,7 @@ class Generalmodal extends CI_Model {
 		if($query->num_rows() > 0){			
 			return array("status"=>"SUCCESS","message"=>"record finded","object"=>$query->result());
 		}else{
-			return array("status"=>"FAILED","message"=>"No record found","object"=>NULL);
+			return array("status"=>"FAILURE","message"=>"No record found","object"=>NULL);
 		}
 	}
 	
@@ -47,7 +47,7 @@ class Generalmodal extends CI_Model {
 		if($cates->result() > 0){			
 			return array("status"=>"SUCCESS","message"=>"record finded","object"=>$cates->result());
 		}else{
-			return array("status"=>"FAILED","message"=>"No record found","object"=>NULL);
+			return array("status"=>"FAILURE","message"=>"No record found","object"=>NULL);
 		}
 		
 	}
@@ -76,7 +76,7 @@ class Generalmodal extends CI_Model {
 		if($cates->result() > 0){			
 			return array("status"=>"SUCCESS","message"=>"record finded","object"=>$cates->result());
 		}else{
-			return array("status"=>"FAILED","message"=>"No record found","object"=>NULL);
+			return array("status"=>"FAILURE","message"=>"No record found","object"=>NULL);
 		}
 		
 	}
@@ -100,7 +100,7 @@ class Generalmodal extends CI_Model {
 		if($query->num_rows() > 0){			
 			return array("status"=>"SUCCESS","message"=>"record finded","object"=>$query->result());
 		}else{
-			return array("status"=>"FAILED","message"=>"No record found","object"=>NULL);
+			return array("status"=>"FAILURE","message"=>"No record found","object"=>NULL);
 		}
 	}
 	
@@ -124,7 +124,16 @@ class Generalmodal extends CI_Model {
 		if($query->num_rows() > 0){			
 			return array("status"=>"SUCCESS","message"=>"record finded","object"=>$query->result());
 		}else{
-			return array("status"=>"FAILED","message"=>"No record found","object"=>NULL);
+			return array("status"=>"FAILURE","message"=>"No record found","object"=>NULL);
+		}
+	}
+	
+	public function insertdata($table,$data){
+		$query = $this->db->insert($table,$data);
+		if($query){
+			return array("status"=>"SUCCESS","message"=>"record inserted","object"=>NULL);
+		}else{
+			return array("status"=>"FAILURE","message"=>"Error in insertion","object"=>NULL);
 		}
 	}
 	
