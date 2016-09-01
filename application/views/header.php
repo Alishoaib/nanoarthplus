@@ -93,7 +93,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo">
-                        <h1 style="margin:1px;"><a href="./"><img src="assets/img/nanoarthpluslogo2.png"></a></h1>
+                        <h1 style="margin:1px;"><a href="<?php echo base_url(); ?>"><img src="assets/img/nanoarthpluslogo2.png"></a></h1>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4" style="float:right; margin:5px;">
@@ -126,7 +126,7 @@
               
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="">Home</a></li>
+                        <li class="active"><a href="<?php echo base_url(); ?>">Home</a></li>
                         <li><a href="aboutus">About Us</a></li>
                         <li><a href="products">Products</a></li>
                         <li><a href="category">Category</a></li>
