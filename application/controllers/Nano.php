@@ -63,4 +63,16 @@ class Nano extends REST_Controller {
 		$data = $this->Generalmodal->join_three_result('categories cat','products pr','product_images pi','cat.cate_id=pr.cate_id','pr.prod_id=pi.product_id',$group=NULL,"pr.name like \"%$str%\"",$select='*','pr.prod_id',"disc");
 		$this->response($data,REST_Controller::HTTP_OK);
 	}
+	
+	public function categorieslimit_get($limit)
+	{
+		$data = $this->Generalmodal->childcategory($limit);
+		$this->response($data, REST_Controller::HTTP_OK);
+		//$this->response($data, REST_Controller::HTTP_NOT_FOUND);
+	}
+	
+	public function productsByCategoryLimit_get($cate,$limit){
+		$data = $this->Generalmodal->join_three_result('categories cat','products pr','product_images pi','cat.cate_id=pr.cate_id','pr.prod_id=pi.product_id',$group=NULL,array('cat.cate_id'=>$cate),$select='*','pr.prod_id',"disc",$limit);
+		$this->response($data,REST_Controller::HTTP_OK);
+	}
 }
