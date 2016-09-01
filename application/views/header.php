@@ -89,11 +89,7 @@
 
                         <li class="active"><a href="<?php echo base_url(); ?>">Home</a></li>
                         <li><a href="aboutus">About Us</a></li>
-                        <li><a href="products">Products</a></li>
-                        <li><a href="category">Category</a></li>
-                        <li><a href="contactus">Contact us</a></li>                
-                        </div>  
-                   
+                        <!-- <li><a href="products">Products</a></li> -->
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products</a>
                             <ul class="dropdown-menu mega-dropdown">
@@ -169,6 +165,8 @@
                                 </li>
                             </ul>
                         </li>
+                        <li><a href="category">Category</a></li>
+                        <li><a href="contactus">Contact us</a></li>                                  
                         <li><a href="category">Category</a></li>
                         <li><a href="contactus">Contact us</a></li> 
                     </ul>
