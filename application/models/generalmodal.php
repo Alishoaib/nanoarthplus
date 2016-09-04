@@ -81,7 +81,7 @@ class Generalmodal extends CI_Model {
 		
 	}
 	
-	function join_two_result($table1,$table2,$relation,$group=NULL,$where=NULL,$select='*',$order=NULL,$order_type="asc")
+	function join_two_result($table1,$table2,$relation,$group=NULL,$where=NULL,$select='*',$order=NULL,$order_type="asc",$limit=NULL)
 	{
 		$this->db->select($select);
 		$this->db->from($table1);
@@ -95,6 +95,9 @@ class Generalmodal extends CI_Model {
 		if($order != NULL){
 			$this->db->order_by($order,$order_type);
 		}
+		if($limit != NULL){
+			$this->db->limit($limit);
+		}
 		$query = $this->db->get();
 		//return $this->db->last_query();
 		if($query->num_rows() > 0){			
@@ -104,7 +107,7 @@ class Generalmodal extends CI_Model {
 		}
 	}
 	
-	public function join_three_result($table1,$table2,$table3,$relation1,$relation2,$group=NULL,$where=NULL,$select='*',$order=NULL,$order_type="asc")
+	public function join_three_result($table1,$table2,$table3,$relation1,$relation2,$group=NULL,$where=NULL,$select='*',$order=NULL,$order_type="asc",$limit=NULL)
 	{
 		$this->db->select($select);
 		$this->db->from($table1);
@@ -119,12 +122,13 @@ class Generalmodal extends CI_Model {
 		if($order != NULL){
 			$this->db->order_by($order,$order_type);
 		}
+		if($limit != NULL){
+			$this->db->limit($limit);
+		}
 		$query = $this->db->get();
 		//return $this->db->last_query();
 		if($query->num_rows() > 0){			
-			return array("status"=>"SUCCESS","message"=>"record finded","object"=>$query->result());
-		}else{
-			return array("status"=>"FAILURE","message"=>"No record found","object"=>NULL);
+			return $query->result();
 		}
 	}
 	
@@ -137,4 +141,13 @@ class Generalmodal extends CI_Model {
 		}
 	}
 	
+	public function childcategory($limit){
+		$query = $this->db->query("SELECT * FROM `categories` WHERE `cate_id` not in (SELECT t1.cate_id as id FROM categories as t1, categories as t2 where t1.cate_id = t2.parentid and t1.status = 1 group by t1.cate_id) limit ".$limit);
+		if($query->num_rows() > 0){
+			return array("status"=>"SUCCESS","message"=>"record finded","object"=>$query->result());	
+		}else{
+			return array("status"=>"FAILURE","message"=>"No record found","object"=>NULL);
+		}
+		
+	}
 }

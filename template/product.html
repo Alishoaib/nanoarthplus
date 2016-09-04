@@ -1,199 +1,76 @@
 
-     <div class="product-big-title-area">    
-    
-    <div class="single-product-area">
-        <div class="zigzag-bottom"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="single-sidebar">
-                        <h2 class="sidebar-title">Search Products</h2>
-                        <form action="products.php" method="post">
-                            <input type="text" name="search_prod" placeholder="Search products...">
-                            <input type="submit" value="Search">
-                        </form>
-                    </div>
-                   
-                    <div class="single-sidebar">
-                        <h2 class="sidebar-title">Products</h2>
-                                <div class="thubmnail-recent">
-                            <img ng-src="productimages/{{productdetail.image_name}}" class="recent-thumb" alt="">
-                            <h2><a href="product/{{productdetail.prod_id}}">{{productdetail.name}}</a></h2>
-                            <div class="product-sidebar-price">
-                              <ins>{{productdetail.price}}</ins>
-                            </div>                             
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <ol class="breadcrumb">
+                <li><a href="products/">Products</a></li>
+                <li>{{productdetail.name}}</li>
+            </ol>
+        </div>
+        <div class="col-sm-4">
+            <form action="" class="form-horizontal">
+                <div class="input-group">
+                        <input type="text" name="search_prod" class="form-control" placeholder="Search products...">
+                        <div class="input-group-addon" style="padding:0">
+                            <input type="submit" value="Search" class="btn btn-xs" style="padding:7px 15px">
                         </div>
-                               
-                        
-                        <!--<div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$100.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$100.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$100.00</del>
-                            </div>                             
-                        </div>-->
-                    </div>
-                    
-                    <div class="single-sidebar">
-                        <h2 class="sidebar-title">Recent Products</h2>
-                        <ul>
-                       					
-                            <li><a href="product">hkgkj</a></li>
+                    </div>                
+            </form>
+        </div>
+    </div>
 
-
-                       					
-                            <li ng-repeat="data in products"><a href="product">{{data.name}}</a></li>
-                            
-                           
-                            <!--<li><a href="">Sony Smart TV - 2015</a></li>
-                            <li><a href="">Sony Smart TV - 2015</a></li>
-                            <li><a href="">Sony Smart TV - 2015</a></li>
-                            <li><a href="">Sony Smart TV - 2015</a></li>-->
-                        </ul>
-                    </div>
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="panel panel-default">
+                <div class="panel-body" style="padding:3px">
+                    <img ng-src="assets/productimages/{{productdetail.images[0].image_name}}" alt="{{productdetail.images[0].name}}">
                 </div>
-               
-                <div class="col-md-8">
-                    <div class="product-content-right">
-                        <ol class="breadcrumb">
-                            <li><a href="products.php">Products</a></li>
-                            <!--<a href="">Category Name</a>-->
-
-                            <a href="product">{{productdetail.name}}</a>
-
-
+            </div>
+            <div class="row">
+                <a href="" class="col-sm-4" ng-repeat="image in productdetail.images"><img ng-src="assets/productimages/{{image.image_name}}" class="thumbnail" alt="{{image.name}}"></a>
+<!--                 <a href="" class="col-sm-4"><img ng-src="assets/productimages/{{productdetail.image_name}}" class="thumbnail" alt="{{productdetail.name}}"></a>
+                <a href="" class="col-sm-4"><img ng-src="assets/productimages/{{productdetail.image_name}}" class="thumbnail" alt="{{productdetail.name}}"></a> -->
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <h3 class="product-name">{{productdetail.prodname}}</h3>
+            <p><b>Category : </b><i>{{productdetail.catname}}</i></p>
+            <p><b>Price : </b>{{productdetail.curreny}} {{productdetail.price}}</p>
+            <b>Description</b> <br>
+            <p ng-bind="productdetail.description"></p>
+        </div>
+        <div class="col-sm-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">Related Produts</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-5"><img ng-src="assets/productimages/{{productdetail.image_name}}" class="thumbnail" alt="{{productdetail.name}}"></div>
+                        <div class="col-sm-7">
+                            <p style="font-size:12px; margin-bottom:0">{{productdetail.name}}</p>
+                            <i>{{productdetail.curreny}} {{productdetail.price}}</i>
                         </div>
-                            <li>{{productdetail[0].name}}</li>
-                        </ol>
+                        <div class="col-sm-12 dotted-line"></div>
 
-                        
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="product-images">
-                                    <div class="product-main-img">
-                                        <img ng-src="productimages/{{productdetail.image_name}}" alt="{{productdetail.name}}">
-                                    </div>
-                                    
-                                  <div class="product-gallery">
-                                        <img src="productimages/{{productdetail.image_name}}" alt="{{productdetail.name}}">
-                                       
-                                            <img src="productimages/{{productdetail.image_name}}" alt="{{productdetail.name}}">
-                                            <img src="productimages/{{productdetail.image_name}}" alt="{{productdetail.name}}">
-                                            
-                                        <img ng-src="assets/productimages/{{productdetail[0].image_name}}" alt="{{productdetail[0].name}}">
-                                    </div>
-                                    
-                                  <div class="product-gallery">
-                                        <img ng-src="assets/productimages/{{productdetail[0].image_name}}" alt="{{productdetail[0].name}}">
-                                       
-                                            <img ng-src="assets/productimages/{{productdetail[0].image_name}}" alt="{{productdetail[0].name}}">
-                                            <img ng-src="assets/productimages/{{productdetail[0].image_name}}" alt="{{productdetail[0].name}}">
-                                            
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-sm-6">
-                                <div class="product-inner">
-                                    <h2 class="product-name">{{productdetail.name}}</h2>
-                                    <div class="product-inner-price">
-                                       <ins>{{productdetail.price}}</ins> <!--<del>$100.00</del>-->
-                                    <h2 class="product-name">{{productdetail[0].name}}</h2>
-                                    <div class="product-inner-price">
-                                       <ins>{{productdetail[0].price}}</ins> <!--<del>$100.00</del>-->
-
-                                    </div>    
-                                    
-                                   <!-- <form action="" class="cart">
-                                        <div class="quantity">
-                                            <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
-                                        </div>
-                                        <button class="add_to_cart_button" type="submit">Add to cart</button>
-                                    </form>  --> 
-                                    
-                                    <div class="product-inner-category">
-                                   
-                                        <p>Category: <a href="">{{productdetail[0].name}}</a>. <!--Tags: <a href="">awesome</a>, <a href="">best</a>, <a href="">sale</a>, <a href="">shoes</a>.--> </p>
-                                    </div> 
-                                    
-                                    <div role="tabpanel">
-                                        <ul class="product-tab" role="tablist">
-                                            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
-                                            <!--<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a></li>-->
-                                        </ul>
-                                        <div class="tab-content">
-                                            <div role="tabpanel" class="tab-pane fade in active" id="home">
-                                                <h2>Product Description</h2>  
-                                                <p ng-bind="productdetail.description"></p>
-
-                                                <p ng-bind="productdetail[0].description"></p>
-                                            </div>
-                                            <!--<div role="tabpanel" class="tab-pane fade" id="profile">
-                                                <h2>Reviews</h2>
-                                                <div class="submit-review">
-                                                    <p><label for="name">Name</label> <input name="name" type="text"></p>
-                                                    <p><label for="email">Email</label> <input name="email" type="email"></p>
-                                                    <div class="rating-chooser">
-                                                        <p>Your rating</p>
-
-                                                        <div class="rating-wrap-post">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </div>
-                                                    </div>
-                                                    <p><label for="review">Your review</label> <textarea name="review" id="" cols="30" rows="10"></textarea></p>
-                                                    <p><input type="submit" value="Submit"></p>
-                                                </div>
-                                            </div>-->
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                            </div>
+                        <div class="col-sm-5"><img ng-src="assets/productimages/{{productdetail.image_name}}" class="thumbnail" alt="{{productdetail.name}}"></div>
+                        <div class="col-sm-7">
+                            <p style="font-size:12px; margin-bottom:0">{{productdetail.name}}</p>
+                            <i>{{productdetail.curreny}} {{productdetail.price}}</i>
                         </div>
-                       
-                        <div class="related-products-wrapper">
-                            <h2 class="related-products-title">Related Products</h2>
-                            <div class="related-products-carousel">
-                           
-                                <div class="single-product">
-                                    <div class="product-f-image">
-                                        <img src="productimages/<?=$relprod['prod_image'];?>" alt="<?=$relprod['name'];?>">
-                                        <div class="product-hover">
-                                            <!--<a href="" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>-->
-                                            <a href="product.php?id=<?=$relprod['prod_id'];?>" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                        </div>
-                                    </div>
+                        <div class="col-sm-12 dotted-line"></div>
 
-                                    <h2><a href="product.php?id=<?=$relprod['prod_id'];?>"><?=$relprod['name'];?></a></h2>
-
-                                   <div class="product-carousel-price">
-                                        <ins><?=$relprod['curreny'];?><?=$relprod['price'];?></ins> 
-                                    </div>
-                                </div>
-                                                         
-                            </div>
+                        <div class="col-sm-5"><img ng-src="assets/productimages/{{productdetail.image_name}}" class="thumbnail" alt="{{productdetail.name}}"></div>
+                        <div class="col-sm-7">
+                            <p style="font-size:12px; margin-bottom:0">{{productdetail.name}}</p>
+                            <i>{{productdetail.curreny}} {{productdetail.price}}</i>
                         </div>
-                    </div>                    
+                        <div class="col-sm-12 dotted-line"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+
+  

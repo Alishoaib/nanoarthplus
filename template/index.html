@@ -54,7 +54,7 @@
     </div> <!-- End slider area -->
     
     <div class="promo-area">
-        <div class="zigzag-bottom"></div>
+        <!-- <div class="zigzag-bottom"></div> -->
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-6">
@@ -86,15 +86,21 @@
     </div> <!-- End promo area -->
     
     <div class="maincontent-area">
-        <div class="zigzag-bottom"></div>
+        <!-- <div class="zigzag-bottom"></div> -->
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="latest-product">
-                        <h2 class="section-title">Latest Products</h2>
-                        <div class="product-carousel" >
-                       
-                            <div class="single-product col-sm-3" ng-repeat="data in products">
+                    <h2 class="section-title">Latest Products</h2>
+                    <div class="product-carousel-controls pull-right">
+                        <button class="btn btn-sm carousel-control left" data-target="#product-carousel" role="button" data-slide="prev"><span class="fa fa-chevron-left"></span></button>
+                        <button class="btn btn-sm carousel-control right" data-target="#product-carousel" role="button" data-slide="next"><span class="fa fa-chevron-right"></span></button>
+                    </div>
+                    <div id="product-carousel" class="carousel slide" data-ride="carousel">
+
+                      <!-- Wrapper for slides -->
+                      <div class="carousel-inner" role="listbox">
+                        <div class="item row active">
+                          <div class="single-product col-sm-3" ng-repeat="data in products">
                                 <div class="product-f-image">
                                     <img ng-src="assets/productimages/{{data.image_name}}" alt="">
                                     <div class="product-hover">
@@ -110,7 +116,36 @@
                                 </div> 
                             </div>
                         </div>
+                        <div class="item row">
+                          <div class="single-product col-sm-3" ng-repeat="data in products">
+                                <div class="product-f-image">
+                                    <img ng-src="assets/productimages/{{data.image_name}}" alt="">
+                                    <div class="product-hover">
+                                        <!-- <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a> -->
+                                        <a href="product/{{data.product_id}}" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="product/{{data.product_id}}">{{data.name}}</a></h2>
+                                
+                                <div class="product-carousel-price">
+                                    <ins>{{data.curreny}} {{data.price}}</ins>
+                                </div> 
+                            </div>
+                        </div>
+                      </div>
+
+                      <!-- Controls -->
+                      <!-- <a class="left carousel-control" href="#product-carousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="right carousel-control" href="#product-carousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a> -->
                     </div>
+                    
                 </div>
             </div>
         </div>

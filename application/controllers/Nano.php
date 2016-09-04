@@ -28,12 +28,37 @@ class Nano extends REST_Controller {
 	
 	public function productsByCategory_get($cate){
 		$data = $this->Generalmodal->join_three_result('categories cat','products pr','product_images pi','cat.cate_id=pr.cate_id','pr.prod_id=pi.product_id',$group=NULL,array('cat.cate_id'=>$cate),$select='*','pr.prod_id',"disc");
-		$this->response($data,REST_Controller::HTTP_OK);
+		if(sizeof($data) > 0){
+			$this->response(array("status"=>"SUCCESS","message"=>"record finded","object"=>$data),REST_Controller::HTTP_OK);
+		}else{
+			return array("status"=>"FAILURE","message"=>"No record found","object"=>NULL);
+		}
 	}
 	
 	public function productdetail_get($id){
-		$data = $this->Generalmodal->join_three_result('categories cat','products pr','product_images pi','cat.cate_id=pr.cate_id','pr.prod_id=pi.product_id',$group=NULL,array('pr.prod_id'=>$id),$select='*');		
-		$this->response($data,REST_Controller::HTTP_OK);
+		$data = $this->Generalmodal->join_three_result('categories cat','products pr','product_images pi','cat.cate_id=pr.cate_id','pr.prod_id=pi.product_id',$group=NULL,array('pr.prod_id'=>$id),'cat.name as catname,pr.*,pi.*');	
+		
+		if($data){
+			$object = array();
+			$images = array();
+			
+			foreach($data as $val){
+				$images[] = array('image_id' => $val->image_id,'image_name' => $val->image_name);
+			}
+			$object['prod_id'] = $data[0]->prod_id;
+			$object['cate_id'] = $data[0]->cate_id;
+			$object['catname'] = $data[0]->catname;
+			$object['prodname'] = $data[0]->name;
+			$object['description'] = $data[0]->description;
+			$object['curreny'] = $data[0]->curreny;
+			$object['status'] = $data[0]->status;
+			$object['price'] = $data[0]->price;
+			$object['images'] = $images;
+			$this->response(array("status"=>"SUCCESS","message"=>"record finded","object"=>$object),REST_Controller::HTTP_OK);
+		}else{
+			return array("status"=>"FAILURE","message"=>"No record found","object"=>NULL);
+		}
+		
 	}
 	
 	public function contactus_put(){
@@ -61,6 +86,31 @@ class Nano extends REST_Controller {
 	public function productsearch_get(){
 		$str = $this->get('name');
 		$data = $this->Generalmodal->join_three_result('categories cat','products pr','product_images pi','cat.cate_id=pr.cate_id','pr.prod_id=pi.product_id',$group=NULL,"pr.name like \"%$str%\"",$select='*','pr.prod_id',"disc");
+		if(sizeof($data)){
+			$this->response(array("status"=>"SUCCESS","message"=>"record finded","object"=>$data),REST_Controller::HTTP_OK);
+		}else{
+			return array("status"=>"FAILURE","message"=>"No record found","object"=>NULL);
+		}
+	}
+	
+	public function categorieslimit_get($limit)
+	{
+		$data = $this->Generalmodal->childcategory($limit);
+		$this->response($data, REST_Controller::HTTP_OK);
+		//$this->response($data, REST_Controller::HTTP_NOT_FOUND);
+	}
+	
+	public function productsByCategoryLimit_get($cate,$limit){
+		$data = $this->Generalmodal->join_three_result('categories cat','products pr','product_images pi','cat.cate_id=pr.cate_id','pr.prod_id=pi.product_id',$group=NULL,array('cat.cate_id'=>$cate),$select='*','pr.prod_id',"disc",$limit);
+		if(sizeof($data)){
+			$this->response(array("status"=>"SUCCESS","message"=>"record finded","object"=>$data),REST_Controller::HTTP_OK);
+		}else{
+			return array("status"=>"FAILURE","message"=>"No record found","object"=>NULL);
+		}
+	}
+	
+	public function allProductsLimit_get($limit){
+		$data = $this->Generalmodal->join_two_result('products pr','product_images pi','pr.prod_id=pi.product_id','pr.prod_id',NULL,'*','pr.prod_id',"desc",$limit);
 		$this->response($data,REST_Controller::HTTP_OK);
 	}
 }
