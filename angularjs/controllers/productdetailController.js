@@ -4,13 +4,20 @@ nano.controller('productdetailController',
 								productdetail($http, $scope,$routeParams);
 							 });
 function productdetail($http, $scope,$routeParams){
-	$http.get(context+'Nano/productdetail/'+$routeParams.prodid).success(function (data) {
 
-	if(data.status === "SUCCESS"){
+    $http({
+           method : 'GET',
+           url   : context + 'Nano/productdetail/'+$routeParams.prodid,
+           headers: {'Content-Type': 'application/json'}
+       }).success(function (data) {
+		   
+     if(data.status === "SUCCESS"){
 		$scope.productdetail = data.object;
+		console.log(data.object.catname)
 	}else{
 		getErrorNotificationmsg('No Record Found');
 	}
-        
-    });
+ }).error(function (data) {
+     getErrorNotificationmsg('Error Occure');
+ });
 }

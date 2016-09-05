@@ -81,7 +81,7 @@ class Generalmodal extends CI_Model {
 		
 	}
 	
-	function join_two_result($table1,$table2,$relation,$group=NULL,$where=NULL,$select='*',$order=NULL,$order_type="asc")
+	function join_two_result($table1,$table2,$relation,$group=NULL,$where=NULL,$select='*',$order=NULL,$order_type="asc",$limit=NULL)
 	{
 		$this->db->select($select);
 		$this->db->from($table1);
@@ -94,6 +94,9 @@ class Generalmodal extends CI_Model {
 		}
 		if($order != NULL){
 			$this->db->order_by($order,$order_type);
+		}
+		if($limit != NULL){
+			$this->db->limit($limit);
 		}
 		$query = $this->db->get();
 		//return $this->db->last_query();
@@ -125,9 +128,7 @@ class Generalmodal extends CI_Model {
 		$query = $this->db->get();
 		//return $this->db->last_query();
 		if($query->num_rows() > 0){			
-			return array("status"=>"SUCCESS","message"=>"record finded","object"=>$query->result());
-		}else{
-			return array("status"=>"FAILURE","message"=>"No record found","object"=>NULL);
+			return $query->result();
 		}
 	}
 	

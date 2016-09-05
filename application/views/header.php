@@ -72,7 +72,7 @@
         </div>
     </div> <!-- End site branding area -->
     
-    <div class="mainmenu-area">
+    <div class="mainmenu-area" ng-controller="defaultController">
         <div class="container">
             <div class="row">
                 <div class="navbar-header">
@@ -83,7 +83,15 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div> 
-              
+              <script>
+              $(document).click(function (event) {
+                if (event.target == $('.fixMenu')) {
+                    $('.mega-dropdown').css('display','block');
+                } else {
+                    $('.mega-dropdown').css('display','none');
+                }
+            });
+              </script>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
 
@@ -91,74 +99,24 @@
                         <li><a href="aboutus">About Us</a></li>
                         <!-- <li><a href="products">Products</a></li> -->
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products</a>
+                            <a href="#" class="dropdown-toggle fixMenu" data-toggle="dropdown" >Products</a>
                             <ul class="dropdown-menu mega-dropdown">
                                 <li class="row">
                                     <div class="col-sm-3">
                                         <ul class="list">
-                                            <li><a href="/pruduct">Test Product</a></li>
-                                            <li><a href="">Test Product</a></li>
-                                            <li><a href="">Test Product</a></li>
-                                            <li><a href="">Test Product</a></li>
-                                            <li><a href="">Test Product</a></li>
-                                            <li><a href="">Test Product</a></li>
-                                            <li><a href="">Test Product</a></li>
-                                            <li><a href="">Test Product</a></li>
-                                            <li><a href="">Test Product</a></li>
-                                            <li><a href="">Test Product</a></li>
+                                            <li ng-repeat="data in categories"><a href="/products/{{data.cate_id}}">{{data.name}}</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-9">
                                         <div class="row">
                                             
-                                        <div class="col-sm-3">
-                                            <div class="thumbnail">
-                                                <img src="assets/img/product-thumb-3.jpg" alt="">
-                                                <div class="thumbnail-caption">Test</div>
-                                            </div>
+                                        <div class="col-sm-3" ng-repeat="data in products">
+                                            <a href="product/{{data.product_id}}" class="thumbnail">
+                                                <img ng-src="assets/productimages/{{data.image_name}}" width="100%" alt="">
+                                                <div class="thumbnail-caption">{{data.name}}</div>
+                                            </a>
                                         </div>
-                                        <div class="col-sm-3">
-                                            <div class="thumbnail">
-                                                <img src="assets/img/product-thumb-3.jpg" alt="">
-                                                <div class="thumbnail-caption">Test</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <div class="thumbnail">
-                                                <img src="assets/img/product-thumb-3.jpg" alt="">
-                                                <div class="thumbnail-caption">Test</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <div class="thumbnail">
-                                                <img src="assets/img/product-thumb-3.jpg" alt="">
-                                                <div class="thumbnail-caption">Test</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <div class="thumbnail">
-                                                <img src="assets/img/product-thumb-3.jpg" alt="">
-                                                <div class="thumbnail-caption">Test</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <div class="thumbnail">
-                                                <img src="assets/img/product-thumb-3.jpg" alt="">
-                                                <div class="thumbnail-caption">Test</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <div class="thumbnail">
-                                                <img src="assets/img/product-thumb-3.jpg" alt="">
-                                                <div class="thumbnail-caption">Test</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <div class="thumbnail">
-                                                <img src="assets/img/product-thumb-3.jpg" alt="">
-                                                <div class="thumbnail-caption">Test</div>
-                                            </div>
-                                        </div>
+                                        
                                     
                                         </div>
                                     </div>
@@ -167,8 +125,6 @@
                         </li>
                         <li><a href="category">Category</a></li>
                         <li><a href="contactus">Contact us</a></li>                                  
-                        <li><a href="category">Category</a></li>
-                        <li><a href="contactus">Contact us</a></li> 
                     </ul>
                 </div>  
             </div>
