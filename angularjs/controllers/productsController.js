@@ -19,6 +19,8 @@ function getallproducts($http, $scope){
     });
 }
 
+
+
 function getproductsbycategory($http, $scope,$routeParams){
 	$http.get(context+'Nano/productsByCategory/'+$routeParams.id).success(function (data) {
 

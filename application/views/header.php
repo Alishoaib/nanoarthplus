@@ -104,18 +104,75 @@
                                 <li class="row">
                                     <div class="col-sm-3">
                                         <ul class="list">
-                                            <li ng-repeat="data in categories"><a href="/products/{{data.cate_id}}">{{data.name}}</a></li>
+                                            <li><a href="category/{{data.cate_id}}">category</a></li>
+                                            <li><a href="category/{{data.cate_id}}">category</a></li>
+                                            <li><a href="category/{{data.cate_id}}">category</a></li>
+                                            <li><a href="category/{{data.cate_id}}">category</a></li>
+                                            <li><a href="category/{{data.cate_id}}">category</a></li>
+                                            <li><a href="category/{{data.cate_id}}">category</a></li>
+                                            <li><a href="category/{{data.cate_id}}">category</a></li>
+                                            <li><a href="category/{{data.cate_id}}">category</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-9">
                                         <div class="row">
                                             
-                                        <div class="col-sm-3" ng-repeat="data in products">
-                                            <a href="product/{{data.product_id}}" class="thumbnail">
-                                                <img ng-src="assets/productimages/{{data.image_name}}" width="100%" alt="">
-                                                <div class="thumbnail-caption">{{data.name}}</div>
+                                        <div class="col-sm-3">
+                                            <a href="product/{{item.product_id}}" class="thumbnail">
+                                                <img ng-src="assets/productimages/hamza.jpg" width="100%" alt="">
+                                                <div class="thumbnail-caption">test name</div>
                                             </a>
                                         </div>
+
+                                        <div class="col-sm-3">
+                                            <a href="product/{{item.product_id}}" class="thumbnail">
+                                                <img ng-src="assets/productimages/hamza.jpg" width="100%" alt="">
+                                                <div class="thumbnail-caption">test name</div>
+                                            </a>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <a href="product/{{item.product_id}}" class="thumbnail">
+                                                <img ng-src="assets/productimages/hamza.jpg" width="100%" alt="">
+                                                <div class="thumbnail-caption">test name</div>
+                                            </a>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <a href="product/{{item.product_id}}" class="thumbnail">
+                                                <img ng-src="assets/productimages/hamza.jpg" width="100%" alt="">
+                                                <div class="thumbnail-caption">test name</div>
+                                            </a>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <a href="product/{{item.product_id}}" class="thumbnail">
+                                                <img ng-src="assets/productimages/hamza.jpg" width="100%" alt="">
+                                                <div class="thumbnail-caption">test name</div>
+                                            </a>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <a href="product/{{item.product_id}}" class="thumbnail">
+                                                <img ng-src="assets/productimages/hamza.jpg" width="100%" alt="">
+                                                <div class="thumbnail-caption">test name</div>
+                                            </a>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <a href="product/{{item.product_id}}" class="thumbnail">
+                                                <img ng-src="assets/productimages/hamza.jpg" width="100%" alt="">
+                                                <div class="thumbnail-caption">test name</div>
+                                            </a>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <a href="product/{{item.product_id}}" class="thumbnail">
+                                                <img ng-src="assets/productimages/hamza.jpg" width="100%" alt="">
+                                                <div class="thumbnail-caption">test name</div>
+                                            </a>
+                                        </div>
+
                                         
                                     
                                         </div>
