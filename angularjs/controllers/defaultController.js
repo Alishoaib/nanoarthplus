@@ -4,7 +4,7 @@ nano.controller('defaultController',
 							 getMenuCategories($http, $scope);
 							 carouselProducts($http, $scope);
 							 getCarouselCategories($http, $scope);
-							 getLImitProducts($http, $scope);
+							
 							 });
 ////main controller ends here
 
@@ -14,18 +14,6 @@ function getHpmeProducts($http, $scope){
 
 	if(data.status === "SUCCESS"){
 		$scope.products = data.object;
-	}else{
-		getErrorNotificationmsg('No Record Foundssss');
-	}
-        
-    });
-}
-
-function getLImitProducts($http, $scope){
-	$http.get(context+'Nano/allProductsLimit/8').success(function (data) {
-
-	if(data.status === "SUCCESS"){
-		$scope.productsLimit = data.object;
 	}else{
 		getErrorNotificationmsg('No Record Foundssss');
 	}
