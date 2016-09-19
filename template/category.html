@@ -17,7 +17,7 @@
         
             <div class="row">
           
-                <a href="product/{{cate.cate_id}}" ng-repeat="cate in category" ng-show="cate.parents == 'false'">
+                <a href="products/{{cate.cate_id}}" ng-repeat="cate in category" ng-show="cate.parents == 'false'">
                  <div class="category mycate">{{cate.name}}</div>
                 </a> 
                 <a href="category/{{cate.cate_id}}" ng-repeat="cate in category" ng-show="cate.parents == 'true'">

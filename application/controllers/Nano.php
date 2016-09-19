@@ -10,8 +10,12 @@ class Nano extends REST_Controller {
     public function categories_get()
 	{
 		$data = $this->Generalmodal->category();
-		$this->response($data, REST_Controller::HTTP_OK);
-		//$this->response($data, REST_Controller::HTTP_NOT_FOUND);
+		if(sizeof($data) > 0){
+			$this->response(array("status"=>"SUCCESS","message"=>"record finded","object"=>$data), REST_Controller::HTTP_OK);
+			
+		}else{
+			$this->response(array("status"=>"FAILURE","message"=>"No record found","object"=>NULL), REST_Controller::HTTP_OK);
+		}
 	}
 	
 	public function subCategories_get($id)
@@ -23,7 +27,12 @@ class Nano extends REST_Controller {
 	
 	public function allProducts_get(){
 		$data = $this->Generalmodal->join_two_result('products pr','product_images pi','pr.prod_id=pi.product_id','pr.prod_id',NULL,'*','pr.prod_id',"desc");
-		$this->response($data,REST_Controller::HTTP_OK);
+		if(sizeof($data) > 0){
+			$this->response(array("status"=>"SUCCESS","message"=>"record founded","object"=>$data),REST_Controller::HTTP_OK);
+		}else{
+			$this->response(array("status"=>"FAILURE","message"=>"No record found","object"=>NULL),REST_Controller::HTTP_OK);
+		}
+		
 	}
 	
 	public function productsByCategory_get($cate){
@@ -31,7 +40,7 @@ class Nano extends REST_Controller {
 		if(sizeof($data) > 0){
 			$this->response(array("status"=>"SUCCESS","message"=>"record finded","object"=>$data),REST_Controller::HTTP_OK);
 		}else{
-			return array("status"=>"FAILURE","message"=>"No record found","object"=>NULL);
+			$this->response(array("status"=>"FAILURE","message"=>"No record found","object"=>NULL),REST_Controller::HTTP_OK);
 		}
 	}
 	
@@ -56,7 +65,7 @@ class Nano extends REST_Controller {
 			$object['images'] = $images;
 			$this->response(array("status"=>"SUCCESS","message"=>"record finded","object"=>$object),REST_Controller::HTTP_OK);
 		}else{
-			return array("status"=>"FAILURE","message"=>"No record found","object"=>NULL);
+			$this->response(array("status"=>"FAILURE","message"=>"No record found","object"=>NULL),REST_Controller::HTTP_OK);
 		}
 		
 	}
@@ -76,7 +85,7 @@ class Nano extends REST_Controller {
 		
 		$eamil = $this->email->send();
 		if($eamil){
-			$this->response($data,REST_Controller::HTTP_OK);
+			$this->response(array("status"=>"SUCCESS","message"=>"Your email has been sent","object"=>NULL),REST_Controller::HTTP_OK);
 		}else{
 			$this->response(array("status"=>"FAILURE","message"=>"Error in email","object"=>NULL), REST_Controller::HTTP_FORBIDDEN );
 		}
@@ -85,11 +94,11 @@ class Nano extends REST_Controller {
 	
 	public function productsearch_get(){
 		$str = $this->get('name');
-		$data = $this->Generalmodal->join_three_result('categories cat','products pr','product_images pi','cat.cate_id=pr.cate_id','pr.prod_id=pi.product_id',$group=NULL,"pr.name like \"%$str%\"",$select='*','pr.prod_id',"disc");
+		$data = $this->Generalmodal->join_three_result('categories cat','products pr','product_images pi','cat.cate_id=pr.cate_id','pr.prod_id=pi.product_id',$group=NULL,"pr.name like \"$str%\"",$select='*','pr.name',"disc");
 		if(sizeof($data)){
 			$this->response(array("status"=>"SUCCESS","message"=>"record finded","object"=>$data),REST_Controller::HTTP_OK);
 		}else{
-			return array("status"=>"FAILURE","message"=>"No record found","object"=>NULL);
+			$this->response(array("status"=>"FAILURE","message"=>"No record found","object"=>NULL),REST_Controller::HTTP_OK);
 		}
 	}
 	
@@ -105,12 +114,71 @@ class Nano extends REST_Controller {
 		if(sizeof($data)){
 			$this->response(array("status"=>"SUCCESS","message"=>"record finded","object"=>$data),REST_Controller::HTTP_OK);
 		}else{
-			return array("status"=>"FAILURE","message"=>"No record found","object"=>NULL);
+			$this->response(array("status"=>"FAILURE","message"=>"No record found","object"=>NULL),REST_Controller::HTTP_OK);
 		}
 	}
 	
 	public function allProductsLimit_get($limit){
 		$data = $this->Generalmodal->join_two_result('products pr','product_images pi','pr.prod_id=pi.product_id','pr.prod_id',NULL,'*','pr.prod_id',"desc",$limit);
-		$this->response($data,REST_Controller::HTTP_OK);
+		if(sizeof($data) > 0){
+			$this->response(array("status"=>"FAILURE","message"=>"No record found","object"=>$data),REST_Controller::HTTP_OK);
+		}else{
+			$this->response(array("status"=>"FAILURE","message"=>"No record found","object"=>NULL),REST_Controller::HTTP_OK);
+		}
+	}
+	
+	public function productForSlider_get(){
+		$data = $this->Generalmodal->join_two_result('products pr','product_images pi','pr.prod_id=pi.product_id','pr.prod_id',NULL,'*','pr.prod_id',"desc",72);
+		if(sizeof($data) > 0){
+			$mainarray = array();
+			$temparray = array();
+			$count = 0;
+			foreach($data as $key=>$val){
+				$temparray[] = $val;
+				$count++;
+				if($count == 11){
+					$mainarray[] = $temparray;
+					$temparray = array();
+					$count = 0;
+				}
+				
+				
+			}
+			if(sizeof($mainarray) == 0){
+				$mainarray = $data;
+			}
+			$this->response(array("status"=>"SUCCESS","message"=>"record founded","object"=>$mainarray),REST_Controller::HTTP_OK);
+		}else{
+			$this->response(array("status"=>"FAILURE","message"=>"No record found","object"=>NULL),REST_Controller::HTTP_OK);
+			
+		}
+	}
+	
+	public function categoryForSlider_get(){
+		$data = $this->Generalmodal->category();
+		if(sizeof($data) > 0){
+			$mainarray = array();
+			$temparray = array();
+			$count = 0;
+			foreach($data as $key=>$val){
+				$temparray[] = $val;
+				$count++;
+				if($count == 7){
+					$mainarray[] = $temparray;
+					$temparray = array();
+					$count = 0;
+				}
+				if(sizeof($mainarray) == 48){
+					break;
+				}
+			}
+			if(sizeof($mainarray) == 0){
+				$mainarray = $data;
+			}
+			$this->response(array("status"=>"SUCCESS","message"=>"categories","object"=>$mainarray),REST_Controller::HTTP_OK);
+		}else{
+			$this->response(array("status"=>"FAILURE","message"=>"No categories found","object"=>NULL),REST_Controller::HTTP_OK);
+			
+		}
 	}
 }

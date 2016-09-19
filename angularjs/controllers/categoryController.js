@@ -1,4 +1,7 @@
 nano.controller('categoryController', function ($http, $scope, $location, $routeParams, $route, $rootScope) {
+							 menu();
+							 scrolling('top');
+							 loading();
 							 $scope.category = [];
 							 if($routeParams.catid !== undefined){
 								 getallsubcategories($http, $scope,$routeParams.catid);
@@ -9,6 +12,7 @@ nano.controller('categoryController', function ($http, $scope, $location, $route
 					});
 ////main controller ends here
 function getallcategories($http, $scope){
+	loading();
 	$http.get(context+'Nano/categories').success(function (data) {
 
 	if(data.status === "SUCCESS"){
@@ -16,11 +20,12 @@ function getallcategories($http, $scope){
 	}else{
 		getErrorNotificationmsg('No Record Found');
 	}
-        
+        fadeOutLoading();
     });
 }
 
 function getallsubcategories($http, $scope,cateid){
+	loading();
 	$http.get(context+'Nano/subCategories/'+cateid).success(function (data) {
 
 	if(data.status === "SUCCESS"){
@@ -28,6 +33,6 @@ function getallsubcategories($http, $scope,cateid){
 	}else{
 		getErrorNotificationmsg('No Record Found');
 	}
-        
+        fadeOutLoading();
     });
 }

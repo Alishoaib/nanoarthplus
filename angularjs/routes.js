@@ -27,6 +27,14 @@ nano.config(['$httpProvider', '$routeProvider','$locationProvider',
                                   templateUrl: 'template/products.html',
                                   controller : 'productsController'
                               })
+							  .when('/products/:id', {
+                                  templateUrl: 'template/products.html',
+                                  controller : 'productsController'
+                              })
+							  .when('/products/:str', {
+                                  templateUrl: 'template/products.html',
+                                  controller : 'productsController'
+                              })
 							  .when('/product/:prodid', {
                                   templateUrl: 'template/product.html',
                                   controller : 'productdetailController'

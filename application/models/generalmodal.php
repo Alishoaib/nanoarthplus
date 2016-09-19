@@ -45,11 +45,8 @@ class Generalmodal extends CI_Model {
 			
 		}
 		if($cates->result() > 0){			
-			return array("status"=>"SUCCESS","message"=>"record finded","object"=>$cates->result());
-		}else{
-			return array("status"=>"FAILURE","message"=>"No record found","object"=>NULL);
-		}
-		
+			return $cates->result();
+		}		
 	}
 	
 	public function subcategory($id){
@@ -100,10 +97,8 @@ class Generalmodal extends CI_Model {
 		}
 		$query = $this->db->get();
 		//return $this->db->last_query();
-		if($query->num_rows() > 0){			
-			return array("status"=>"SUCCESS","message"=>"record finded","object"=>$query->result());
-		}else{
-			return array("status"=>"FAILURE","message"=>"No record found","object"=>NULL);
+		if($query->num_rows() > 0){	
+			return $query->result();	
 		}
 	}
 	

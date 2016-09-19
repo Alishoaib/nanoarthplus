@@ -19,11 +19,11 @@
                     <div class="footer-menu">
                         <h2 class="footer-wid-title">User Navigation </h2>
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Products</a></li>
-                            <li><a href="#">Categories</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="<?php echo base_url(); ?>">Home</a></li>
+                            <li><a href="aboutus">About Us</a></li>
+                            <li><a href="products">Products</a></li>
+                            <li><a href="category">Categories</a></li>
+                            <li><a href="contactus">Contact Us</a></li>
                         </ul>                        
                     </div>
                 </div>
@@ -31,18 +31,7 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-menu">
                         <h2 class="footer-wid-title">Categories</h2>
-                        <ul>
-                         <?php
-						/*$cate = $obj->fetchdata("categories",'',' order by cate_id desc ','limit 5');
-						if(sizeof($cate) > 0){
-							foreach($cate as $row){*/
-								?>
-                                <li><a href="#"></a></li>
-								<?php
-							/*}
-						}*/
-						?>
-                            
+                        <ul id="footerlinks">                           
                             <!--<li><a href="#">Home accesseries</a></li>
                             <li><a href="#">LED TV</a></li>
                             <li><a href="#">Computer</a></li>
@@ -72,7 +61,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="copyright">
-                        <p>&copy; 2015 nanoarthplus. All Rights Reserved. </p>
+                        <p>&copy; 2016 nanoarthplus. All Rights Reserved. </p>
                     </div>
                 </div>
                 
@@ -109,5 +98,8 @@
   <!-- Slider -->
     <script type="text/javascript" src="assets/js/common/bxslider.min.js"></script>
 	<script type="text/javascript" src="assets/js/common/script.slider.js"></script>
+    <script type="text/javascript">
+	getFooterContents();
+    </script>
   </body>
 </html>

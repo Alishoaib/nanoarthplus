@@ -1,10 +1,13 @@
 nano.controller('productdetailController',
                          function ($http, $scope, $location, $routeParams,$anchorScroll, $route, $rootScope) {
-							 	$scope.productdetail = [];
+							 	menu();
+								scrolling('top');
+								loading();
+								$scope.productdetail = [];
 								productdetail($http, $scope,$routeParams);
 							 });
 function productdetail($http, $scope,$routeParams){
-
+loading();
     $http({
            method : 'GET',
            url   : context + 'Nano/productdetail/'+$routeParams.prodid,
@@ -17,7 +20,9 @@ function productdetail($http, $scope,$routeParams){
 	}else{
 		getErrorNotificationmsg('No Record Found');
 	}
+	fadeOutLoading();
  }).error(function (data) {
      getErrorNotificationmsg('Error Occure');
+	 fadeOutLoading();
  });
 }

@@ -17,7 +17,7 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    
+    <link rel="stylesheet" href="assets/css/common.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/owl.carousel.css">
     <link rel="stylesheet" href="assets/style.css">
@@ -49,7 +49,7 @@
 
     
     <div class="site-branding-area container-fluid">
-        <div class="container">
+        <div class="container" id="top">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo">
@@ -57,9 +57,9 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-        <form action="products.php" method="post" class="form-inline pull-right" style="padding-top:15px">
-            <input type="text" name="search_prod" class="form-control" placeholder="Search products...">
-            <input type="submit" value="Search" class="btn btn-xs" style="padding:8px">
+        <form method="post" class="form-inline pull-right" style="padding-top:15px">
+            <input type="text" name="search_prod" id="search" class="form-control" placeholder="Search products...">
+            <input type="button" value="Search" onClick="genericSearch()" class="btn btn-xs" style="padding:8px">
         </form>
         </div>
                 
@@ -72,8 +72,9 @@
         </div>
     </div> <!-- End site branding area -->
     
-    <div class="mainmenu-area" ng-controller="defaultController">
+    <div class="mainmenu-area">
         <div class="container">
+        <img src="assets/img/loader.gif" class="loader">
             <div class="row">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -93,12 +94,12 @@
             });
               </script>
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav mainmenu">
 
-                        <li class="active"><a href="<?php echo base_url(); ?>">Home</a></li>
-                        <li><a href="aboutus">About Us</a></li>
-                        <!-- <li><a href="products">Products</a></li> -->
-                        <li class="dropdown">
+                        <li id="home"><a href="<?php echo base_url(); ?>">Home</a></li>
+                        <li id="aboutus"><a href="aboutus">About Us</a></li>
+                        <li id="products"><a href="products">Products</a></li> 
+                        <!--<li class="dropdown">
                             <a href="#" class="dropdown-toggle fixMenu" data-toggle="dropdown" >Products</a>
                             <ul class="dropdown-menu mega-dropdown">
                                 <li class="row">
@@ -122,9 +123,9 @@
                                     </div>
                                 </li>
                             </ul>
-                        </li>
-                        <li><a href="category">Category</a></li>
-                        <li><a href="contactus">Contact us</a></li>                                  
+                        </li>-->
+                        <li id="cate"><a href="category">Category</a></li>
+                        <li id="contact"><a href="contactus">Contact us</a></li>                                  
                     </ul>
                 </div>  
             </div>
