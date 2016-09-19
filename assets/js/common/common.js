@@ -32,7 +32,6 @@ function getErrorNotificationmsg (msg) {
 }
 
 function menu(){
-		
 	if(window.location.pathname.split('/')[2] === ""){
 	
 		$('.mainmenu li').removeClass('active');
@@ -86,7 +85,7 @@ function getFooterContents() {
                         if (data.status == "SUCCESS") {
 							var footerhtml = '';
                             jQuery.each(data.object,function(ind,row){
-								footerhtml += "<li><a href='products/'"+row.cate_id+">"+row.name+"</a></li>";
+								footerhtml += "<li><a href='products/"+row.cate_id+"'>"+row.name+"</a></li>";
 							});
 							jQuery('#footerlinks').append(footerhtml);
                         }else {

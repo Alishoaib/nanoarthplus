@@ -1,25 +1,11 @@
 nano.controller('defaultController',
                          function ($http, $scope, $location, $routeParams,$anchorScroll, $route, $rootScope) {
-							 // getHpmeProducts($http, $scope);
-							 getMenuCategories($http, $scope);
+							 menu();
 							 carouselProducts($http, $scope);
 							 getCarouselCategories($http, $scope);
 							
 							 });
 ////main controller ends here
-
-function getHpmeProducts($http, $scope){
-	loading();
-	$http.get(context+'Nano/allProducts').success(function (data) {
-
-	if(data.status === "SUCCESS"){
-		$scope.products = data.object;
-	}else{
-		getErrorNotificationmsg('No Record Foundssss');
-	}
-        
-    });
-}
 
 function carouselProducts($http, $scope){
 	$http.get(context+'Nano/productForSlider').success(function (data) {
@@ -33,21 +19,8 @@ function carouselProducts($http, $scope){
     });
 }
 
-function getMenuCategories($http, $scope){
-	loading();
-	$http.get(context+'Nano/categorieslimit/8').success(function (data) {
-
-	if(data.status === "SUCCESS"){
-		$scope.categories = data.object;
-	}else{
-		getErrorNotificationmsg('No Record Found');
-	}
-        fadeOutLoading();
-    });
-}
-
 function getCarouselCategories($http, $scope){
-	$http.get(context+'Nano/categories').success(function (data) {
+	$http.get(context+'Nano/categoryForSlider').success(function (data) {
 
 	if(data.status === "SUCCESS"){
 		$scope.categories = data.object;

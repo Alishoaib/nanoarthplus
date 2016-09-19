@@ -163,7 +163,7 @@ class Nano extends REST_Controller {
 			foreach($data as $key=>$val){
 				$temparray[] = $val;
 				$count++;
-				if($count == 7){
+				if($count == 8){
 					$mainarray[] = $temparray;
 					$temparray = array();
 					$count = 0;
