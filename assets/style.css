@@ -402,8 +402,8 @@ z-index: 999;}
 .promo4 { background:#4abebd;}
 .section-title {
   font-family: "Raleway",sans-serif;
-  font-size: 50px;
-  font-weight: 100;
+  font-size: 30px;
+  font-weight: 400;
   margin-bottom: 50px;
   text-align: center;
 }
@@ -478,8 +478,11 @@ a.thumbnail{
 }
 
 .product-carousel-controls .left,
-.product-carousel-controls .right{
-  /*background: none;*/
+.product-carousel-controls .right,
+.cat-carousel-controls .left,
+.cat-carousel-controls .right{
+  background: none;
+  border: solid 1px #333
 }
 
 .product-carousel-controls .left {
@@ -509,7 +512,7 @@ a.thumbnail{
 }
 
 .product-carousel-controls .carousel-control {
-    bottom: 82% !important;
+    bottom: 85% !important;
     color: #333;
     font-size: 20px;
     /*right: 0;*/
@@ -517,8 +520,55 @@ a.thumbnail{
     position: absolute;
     text-align: center;
     text-shadow: none;
-    top: 12%;
+    top: 9%;
     width: auto;
+}
+
+.cat-carousel-controls .right{
+  right: 1%;
+}
+
+.cat-carousel-controls .left{
+  left: 92%;
+}
+
+.cat-carousel-controls .carousel-control {
+    bottom: 56% !important;
+    color: #333;
+    font-size: 20px;
+    /*right: 0;*/
+    opacity: 100;
+    position: absolute;
+    text-align: center;
+    text-shadow: none;
+    top: 27%;
+    width: auto;
+}
+
+.carousel-product h4{
+  margin: 3px 0 0 2px;
+  font-size: 15px;
+}
+
+.carousel-product h4:hover,
+.carousel-product i:hover{
+  text-decoration: none;
+}
+
+.carousel-product i{
+  color: #333;
+  font-size: 13px;
+}
+
+.cat-slider{
+  border: solid 1px #333;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #ccc;
+}
+
+.cat-slider .thumbnail{
+  text-align: center;
 }
 
 .dotted-line{
