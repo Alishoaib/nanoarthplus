@@ -2,22 +2,13 @@
 <br>
 <div class="container">
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-12">
             <ol class="breadcrumb">
                 <li><a href="products/">Products</a></li>
-                <li>{{productdetail.name}}</li>
+                <li>{{productdetail.prodname}}</li>
             </ol>
         </div>
-        <div class="col-sm-4">
-            <form action="" class="form-horizontal">
-                <div class="input-group">
-                        <input type="text" name="search_prod" class="form-control" placeholder="Search products...">
-                        <div class="input-group-addon" style="padding:0">
-                            <input type="submit" value="Search" class="btn btn-xs" style="padding:7px 15px">
-                        </div>
-                    </div>                
-            </form>
-        </div>
+        
     </div>
 
     <div class="row">
@@ -44,27 +35,15 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Related Produts</div>
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-sm-5"><img ng-src="assets/productimages/{{productdetail.image_name}}" class="thumbnail" alt="{{productdetail.name}}"></div>
-                        <div class="col-sm-7">
-                            <p style="font-size:12px; margin-bottom:0">{{productdetail.name}}</p>
-                            <i>{{productdetail.curreny}} {{productdetail.price}}</i>
-                        </div>
-                        <div class="col-sm-12 dotted-line"></div>
-
-                        <div class="col-sm-5"><img ng-src="assets/productimages/{{productdetail.image_name}}" class="thumbnail" alt="{{productdetail.name}}"></div>
-                        <div class="col-sm-7">
-                            <p style="font-size:12px; margin-bottom:0">{{productdetail.name}}</p>
-                            <i>{{productdetail.curreny}} {{productdetail.price}}</i>
-                        </div>
-                        <div class="col-sm-12 dotted-line"></div>
-
-                        <div class="col-sm-5"><img ng-src="assets/productimages/{{productdetail.image_name}}" class="thumbnail" alt="{{productdetail.name}}"></div>
-                        <div class="col-sm-7">
-                            <p style="font-size:12px; margin-bottom:0">{{productdetail.name}}</p>
-                            <i>{{productdetail.curreny}} {{productdetail.price}}</i>
-                        </div>
-                        <div class="col-sm-12 dotted-line"></div>
+                    <div class="row" ng-repeat="rel_product in relatedProducts">
+                        <a href="product/{{rel_product.prod_id}}">
+                            <div class="col-sm-5"><img ng-src="assets/productimages/{{rel_product.image_name}}" class="thumbnail" alt="{{rel_product.name}}"></div>
+                            <div class="col-sm-7">
+                                <p style="font-size:12px; margin-bottom:0">{{rel_product.name}}</p>
+                                <i>{{rel_product.curreny}} {{rel_product.price}}</i>
+                            </div>
+                            <div class="col-sm-12 dotted-line"></div>
+                        </a>
                     </div>
                 </div>
             </div>

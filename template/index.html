@@ -140,15 +140,18 @@
 
                   <!-- Wrapper for slides -->
                   <div class="carousel-inner" role="listbox">
-                    <div class="item active" ng-repeat="data in categories" >
+                    <div ng-repeat="slide in limit_cat" >
+                        <div class="item active" ng-repeat="test in slide">
                       <div class="col-sm-3 carousel-product">
                             <div class="thumbnail">
-                                <a href="product/{{data.product_id}}" class="product-f-image" style="display:block">
-                                    {{data.name}}
+                                <a href="product/{{test.cate_id}}" class="product-f-image" style="display:block">
+                                    {{test.name}}
                                 </a>
                             </div>
                         </div>
+                    </div>  
                     </div>
+                    
                   </div>
                 </div>
             </div>

@@ -156,6 +156,7 @@ class Nano extends REST_Controller {
 	
 	public function categoryForSlider_get(){
 		$data = $this->Generalmodal->category();
+		var_dump($data); die;
 		if(sizeof($data) > 0){
 			$mainarray = array();
 			$temparray = array();

@@ -47,10 +47,10 @@ function getMenuCategories($http, $scope){
 }
 
 function getCarouselCategories($http, $scope){
-	$http.get(context+'Nano/categories').success(function (data) {
+	$http.get(context+'Nano/categoryForSlider').success(function (data) {
 
 	if(data.status === "SUCCESS"){
-		$scope.categories = data.object;
+		$scope.limit_cat = data.object;
 	}else{
 		getErrorNotificationmsg('No Record Found');
 	}

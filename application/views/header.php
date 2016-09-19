@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/common.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <!-- <link rel="stylesheet" href="assets/css/owl.carousel.css"> -->
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <script src="assets/js/common/angular.min.js"></script>    
@@ -85,13 +85,13 @@
                     </button>
                 </div> 
               <script>
-              $(document).click(function (event) {
-                if (event.target == $('.fixMenu')) {
-                    $('.mega-dropdown').css('display','block');
-                } else {
-                    $('.mega-dropdown').css('display','none');
-                }
-            });
+            //   $(document).click(function (event) {
+            //     if (event.target == $('.fixMenu')) {
+            //         $('.mega-dropdown').css('display','block');
+            //     } else {
+            //         $('.mega-dropdown').css('display','none');
+            //     }
+            // });
               </script>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav mainmenu">
